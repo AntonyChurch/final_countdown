@@ -7,6 +7,11 @@ The basic idea is to have two files and alternate between each one every loop. T
 
 Even through this software has been made to run on the Raspberry Pi it will be cross platform.
 
+If you are running the Pi headless it is worth installing 'tmux' or 'screen' or a similar alternative.
+Please see [this thread](http://askubuntu.com/questions/8653/how-to-keep-processes-running-after-ending-ssh-session).
+
 #Compilation and execution
+To compile:
 `gcc main.cpp -o final_countdown`
+To run:
 `./final_countdown`
