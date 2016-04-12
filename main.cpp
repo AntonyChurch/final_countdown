@@ -15,6 +15,7 @@ std::string getCurrentTimeStamp(){
 int main(){
 
   std::string timeStamp = getCurrentTimeStamp();
+  timeStamp.erase(timeStamp.size() - 2);
   std::string fileNameA = timeStamp + "a.log";
   std::string fileNameB = timeStamp + "b.log";
 
@@ -24,7 +25,7 @@ int main(){
   std::ofstream fileB;
 
   int index = 0;
-  while(index < 100){ //true){
+  while(true){
     //If index is even write to file A else write to file B
     if(index % 2 == 0){
       fileA.open(fileNameA);
