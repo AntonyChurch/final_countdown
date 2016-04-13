@@ -12,9 +12,14 @@ std::string getCurrentTimeStamp(){
   return std::ctime(&the_time);
 }
 
+unsigned int unixTimestamp(){
+  return (unsigned int)time(NULL);
+}
+
 int main(){
 
   std::string timeStamp = getCurrentTimeStamp();
+  unsigned int startUnixTimestamp = unixTimestamp();
   timeStamp.erase(timeStamp.size() - 2);
   std::string fileNameA = timeStamp + "a.log";
   std::string fileNameB = timeStamp + "b.log";
@@ -29,16 +34,16 @@ int main(){
     //If index is even write to file A else write to file B
     if(index % 2 == 0){
       fileA.open(fileNameA);
-      fileA << getCurrentTimeStamp();
+      fileA << startUnixTimestamp << std::endl;
+      fileA << unixTimestamp();
       fileA.close();
     }
     else{
       fileB.open(fileNameB);
-      fileB << getCurrentTimeStamp();
+      fileB << startUnixTimestamp << std::endl;
+      fileB << unixTimestamp();
       fileB.close();
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     ++index;
   }
