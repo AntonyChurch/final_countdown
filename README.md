@@ -12,6 +12,6 @@ Please see [this thread](http://askubuntu.com/questions/8653/how-to-keep-process
 
 #Compilation and execution
 To compile:
-`gcc main.cpp -o final_countdown`
+`gcc main.cpp -o final_countdown -std=c++11`
 To run:
 `./final_countdown`
