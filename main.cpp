@@ -29,23 +29,23 @@ int main(){
   std::ofstream fileA;
   std::ofstream fileB;
 
-  int index = 0;
+  bool useA = true;
   while(true){
-    //If index is even write to file A else write to file B
-    if(index % 2 == 0){
+    //Swap between file A and file B so that there is a buffer between each cycle.
+    if(useA){
       fileA.open(fileNameA);
       fileA << startUnixTimestamp << std::endl;
       fileA << unixTimestamp();
       fileA.close();
+      useA = false;
     }
     else{
       fileB.open(fileNameB);
       fileB << startUnixTimestamp << std::endl;
       fileB << unixTimestamp();
       fileB.close();
+      useA = true;
     }
-
-    ++index;
   }
   return 0;
 }
